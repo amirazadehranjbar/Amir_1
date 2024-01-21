@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:get/get.dart';
 import 'package:git_project/gen/assets.gen.dart';
+import 'package:git_project/pages/splash_screen.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: ThemeData(fontFamily: "Dubia",
       textTheme: TextTheme(
         bodySmall: TextStyle(color: Colors.white , fontFamily: "Dubia",fontSize: 12,fontWeight: FontWeight.w100),
@@ -24,10 +26,7 @@ class MyApp extends StatelessWidget {
         displayLarge: TextStyle(color: Colors.white , fontFamily: "Dubia",fontSize: 18,fontWeight: FontWeight.w400),
       ),brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(backgroundColor: Colors.white12,
-      body: Center(
-        child: Image.asset(Assets.images.logo.path),
-      )),
+      home: SplashScreen(),
     );
   }
 }
