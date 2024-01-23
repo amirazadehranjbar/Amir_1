@@ -20,7 +20,6 @@ class MainScreen extends StatelessWidget {
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-
           children: [
             //////// Top Row ///////////////////////////////////////////////////
             Container(
@@ -111,12 +110,14 @@ class MainScreen extends StatelessWidget {
                 ),
               ]),
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
 
             ///// Add List View for Hash Tags
             SizedBox(
               height: 60,
-              width: (size.width)-5,
+              width: (size.width) - 5,
               child: ListView.builder(
                 itemBuilder: (context, index) {
                   return Padding(
@@ -135,9 +136,13 @@ class MainScreen extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(tagsList[index].title, style: myTextStyles.mediumLight_2),
-                            SizedBox(width: 5,),
-                            ImageIcon(AssetImage("assets/images/hashtag.png"),size: 20),
+                            Text(tagsList[index].title,
+                                style: myTextStyles.mediumLight_2),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            ImageIcon(AssetImage("assets/images/hashtag.png"),
+                                size: 20),
                           ],
                         ),
                       ),
@@ -149,9 +154,74 @@ class MainScreen extends StatelessWidget {
                 physics: BouncingScrollPhysics(
                     decelerationRate: ScrollDecelerationRate.normal),
                 // padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-
               ),
-            )
+            ),
+
+            //// Add Title and Icon For Viewing Hottest Blogs
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "Seeing Hottest Blogs",
+                    style: myTextStyles.mediumLight_2,
+                  ),
+                  SizedBox(width: 15),
+                  Icon(Icons.pending_actions_sharp),
+                ],
+              ),
+            ),
+
+            //// Add List View for Hottest Blogs
+            SizedBox(
+              height: size.height / 6.5,
+              child: ListView.builder(
+                itemCount: blogList.length,
+                physics: AlwaysScrollableScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return Stack(
+                    fit: StackFit.loose,
+                    children: [
+                      //// Add Image List View for Hottest Blogs
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+                          shape: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide:
+                                  BorderSide(color: Colors.blueGrey, width: 5)),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.network(
+                                blogList[index].imageUrl.toString()),
+                          ),
+                        ),
+                      ),
+                      //// Add Writer Name and Date
+                      Positioned(
+                          bottom: 20,
+                          left: 30,
+                          child: Text(
+                            blogList[index].writer.toString(),
+                            style: myTextStyles.smallLight,
+                          )),
+                      //// Add Gradiant Color
+                      // Container(
+                      //   decoration: BoxDecoration(
+                      //       gradient: LinearGradient(
+                      //           colors: MyListColors.tagsCoverGradient,
+                      //           begin: Alignment.topCenter,
+                      //           end: Alignment.bottomCenter),
+                      //       borderRadius: BorderRadius.circular(15)),
+                      //   width: 50,
+                      // ),
+                    ],
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

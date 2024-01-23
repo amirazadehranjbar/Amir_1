@@ -5,25 +5,25 @@ class HashTagsModel{
 }
 
 class BlogModel{
-  String id;
-  String imageUrl;
-  String title;
-  String writer;
-  String writerImageUrl;
-  String date;
-  String content;
-  String views;
+  String? id;
+  String? imageUrl;
+  String? title;
+  String? writer;
+  String? writerImageUrl;
+  String? date;
+  String? content;
+  String? views;
 
 
   BlogModel({
-    required this.id,
-    required this.imageUrl,
-    required this.title,
-    required this.writer,
-    required this.writerImageUrl,
-    required this.date,
-    required this.content,
-    required this.views
+     this.id,
+     this.imageUrl,
+     this.title,
+     this.writer,
+     this.writerImageUrl,
+     this.date,
+     this.content,
+     this.views
   });
 
 }

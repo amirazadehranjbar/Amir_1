@@ -48,9 +48,12 @@ List<BlogModel> blogList = [
           He is a coauthor, with A. C. Kak,
            of the SIAM  “Classics in Applied Mathematics” book “Principles of Computerized Tomographic Imaging”.""",
 views: '584',),
+
+
+
   BlogModel(
     id: "2",
-    imageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
+    imageUrl: "https://i.ytimg.com/vi/XADYy2zHnbg/maxresdefault.jpg",
     title: "Participation",
     writer: "Amir Azadeh Ranjbar",
     writerImageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
@@ -65,7 +68,7 @@ views: '584',),
     views: '874',),
   BlogModel(
     id: "3",
-    imageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
+    imageUrl: "https://www.starkeypro.com/-/media/Project/Starkey/StarkeyMaster/large-cards/genesis-waterproof/ric-rt-acoustic-ports.jpg?h=1470&iar=0&w=1700&hash=46C572F540E6E719A9ABB3BE031126A0",
     title: "Participation",
     writer: "Amir",
     writerImageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
@@ -80,7 +83,7 @@ views: '584',),
     views: '800',),
   BlogModel(
     id: "4",
-    imageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
+    imageUrl: "https://i.ytimg.com/vi/KGO2tAqdcpQ/sddefault.jpg?v=649bdd65",
     title: "Participation",
     writer: "Azadeh Ranjbar",
     writerImageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
@@ -95,10 +98,10 @@ views: '584',),
     views: '124',),
   BlogModel(
     id: "5",
-    imageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
+    imageUrl: "https://hearingreview.com/wp-content/uploads/2017/08/iQ-Product-Family-1200x900.png",
     title: "Participation",
     writer: "Ranjbar",
-    writerImageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
+    writerImageUrl: "https://hearingreview.com/wp-content/uploads/2017/08/iQ-Product-Family-1200x900.png",
     date: "Yesterday",
     content:
     """You may know Malcolm as one of the initiators of the auditory toolbox,
