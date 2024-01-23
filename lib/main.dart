@@ -18,17 +18,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: ThemeData(fontFamily: "Dubia",
-      textTheme: TextTheme(
-        bodySmall: TextStyle(color: Colors.white , fontFamily: "Dubia",fontSize: 12,fontWeight: FontWeight.w100),
-        bodyMedium: TextStyle(color: Colors.white , fontFamily: "Dubia",fontSize: 14,fontWeight: FontWeight.w200),
-        displaySmall: TextStyle(color: Colors.white , fontFamily: "Dubia",fontSize: 116,fontWeight: FontWeight.w300),
-        displayLarge: TextStyle(color: Colors.white , fontFamily: "Dubia",fontSize: 18,fontWeight: FontWeight.w400),
-      ),brightness: Brightness.dark),
+      theme: ThemeData(
+          brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
   }
 }
-
-
