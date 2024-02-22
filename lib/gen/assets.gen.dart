@@ -28,8 +28,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/user.gif
   AssetGenImage get user => const AssetGenImage('assets/icons/user.gif');
 
+  /// File path: assets/icons/welcome.png
+  AssetGenImage get welcome => const AssetGenImage('assets/icons/welcome.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [editeProfile, home, pencil, profile, user];
+  List<AssetGenImage> get values =>
+      [editeProfile, home, pencil, profile, user, welcome];
 }
 
 class $AssetsImagesGen {

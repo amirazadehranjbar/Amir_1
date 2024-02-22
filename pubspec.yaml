@@ -9,6 +9,7 @@ environment:
   sdk: '>=3.2.5 <4.0.0'
 
 dependencies:
+  smooth_page_indicator: ^1.1.0
   expandable_text: 2.3.0
   get: ^4.6.6
   flutter_spinkit: ^5.2.0
@@ -37,6 +38,7 @@ flutter:
     - assets/icons/pencil.png
     - assets/icons/profile.png
     - assets/icons/edite_profile.png
+    - assets/icons/welcome.png
 
   fonts:
     - family: Dubia

@@ -5,6 +5,7 @@ import 'package:git_project/controllers/home_screen_controller/home_screen_contr
 import 'package:git_project/gen/assets.gen.dart';
 import 'package:git_project/my_textStyles_Colors/my_colors.dart';
 import 'package:git_project/pages/profile_page/profile_screen.dart';
+import 'package:git_project/pages/register_page/register_first.dart';
 import 'home_widget.dart';
 
 class MainScreen extends StatelessWidget {
@@ -80,7 +81,12 @@ class MainScreen extends StatelessWidget {
 
                       ///**************** Pencil Button *************///
                       IconButton(
-                          onPressed: () {},
+                          //ToDo: Button for write article and sign up
+                          onPressed: () {
+                            Get.to(() => RegisterPageFirst(),
+                                transition: Transition.fadeIn,
+                                duration: Duration(seconds: 2));
+                          },
                           icon: ClipRRect(
                               borderRadius: BorderRadius.circular(50),
                               child: Image.asset(
