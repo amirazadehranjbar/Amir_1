@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:git_project/gen/assets.gen.dart';
+import 'package:git_project/my_textStyles_Colors/MytextStyles.dart';
 import 'package:git_project/pages/register_page_controller.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -15,15 +16,12 @@ class RegisterPageFirst extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery
-        .of(context)
-        .size;
+    var size = MediaQuery.of(context).size;
 
     /// Create List For Smooth Page Indicator *****************************************
     final pages = List.generate(
         6,
-            (index) =>
-            Container(
+        (index) => Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 color: Colors.teal.shade600,
@@ -33,26 +31,28 @@ class RegisterPageFirst extends StatelessWidget {
                 height: 280,
                 child: Center(
                     child: Text(
-                      "Page $index",
-                      style: TextStyle(color: Colors.indigo),
-                    )),
+                  "Page $index",
+                  style: TextStyle(color: Colors.indigo),
+                )),
               ),
             ));
 
     return SafeArea(
       child: Scaffold(
-        body: Center(
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          physics: BouncingScrollPhysics(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
               ///************ Image for welcome message *********************************************
+              SizedBox(height: size.height*0.1 ),
               Image.asset(Assets.icons.welcome.path, height: size.height * 0.2),
-              SizedBox(height: 10),
+              SizedBox(height: size.height*0.05),
 
               ///************* Add  Smooth Page Indicator   ******************************************
               SizedBox(
-                height: 240,
+                height: size.height * 0.2,
                 child: PageView.builder(
                   controller: pagecontroller,
                   onPageChanged: (value) {
@@ -65,12 +65,12 @@ class RegisterPageFirst extends StatelessWidget {
                   },
                 ),
               ),
-               Padding(
+              Padding(
                 padding: EdgeInsets.only(top: 24, bottom: 12),
                 child: Obx(() {
                   return Text(
-                  registercontroller.PageIndex.value.toString(),
-                  style: TextStyle(color: Colors.black54),
+                    registercontroller.PageIndex.value.toString(),
+                    style: TextStyle(color: Colors.black54),
                   );
                 }),
               ),
@@ -85,6 +85,31 @@ class RegisterPageFirst extends StatelessWidget {
                   activeDotColor: Colors.blueAccent,
                 ),
               ),
+              SizedBox(
+                  height: size.height*0.1
+              ),
+
+              ///************* Lets Go Button *********************************************************
+              ElevatedButton(
+                onPressed: () {
+                  showModalBottomSheet(context: context, builder: (context) {
+
+                    return Container(
+                      decoration: BoxDecoration(color: Colors.blueGrey,borderRadius: BorderRadius.circular(10)),
+                    ) ;
+
+                  },);
+                },
+                style: ButtonStyle(textStyle: MaterialStateProperty.resolveWith((states){
+                  if(states.contains(MaterialState.pressed)){
+                    return MyTextStyles.large_4;
+                  }
+                  return MyTextStyles.medium_1;
+                })),
+                child:  const Text(
+                  "Lets Go",
+                ),
+              )
             ],
           ),
         ),
