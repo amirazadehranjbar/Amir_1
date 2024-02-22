@@ -17,4 +17,9 @@ class MyListColors {
     //Color.fromARGB(210, 51, 25, 51),
     Color.fromARGB(255, 41, 18, 41),
   ];
+
+  static const List<Color> blogsCoverGradient = [
+    Color.fromARGB(0, 255, 255, 255),
+    Color.fromARGB(255, 0, 0, 0),
+  ];
 }

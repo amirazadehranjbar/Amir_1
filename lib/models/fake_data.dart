@@ -30,15 +30,16 @@ List<HashTagsModel> tagsList = [
 
 ];
 
+String linke = "https://ru.starkey.com/Sites/Starkey2015/Views/Tools/images/hearing-aid-images.jpg";
 ///// List for Blog Information
 List<BlogModel> blogList = [
 
   BlogModel(
       id: "1",
-      imageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
-      title: "Participation",
+      imageUrl: linke,
+      title: "Adjunct Professor at Stanford CCRMA, leading the Hearing Seminar for more than 30 years.",
       writer: "Amir Azadeh Ranjbar",
-      writerImageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
+      writerImageUrl: linke,
       date: "Yesterday",
       content:
           """You may know Malcolm as one of the initiators of the auditory toolbox,
@@ -53,10 +54,10 @@ views: '584',),
 
   BlogModel(
     id: "2",
-    imageUrl: "https://i.ytimg.com/vi/XADYy2zHnbg/maxresdefault.jpg",
-    title: "Participation",
+    imageUrl: linke,
+    title: "e is an Adjuncthe Hearing Seminar for more than 30 years.",
     writer: "Amir Azadeh Ranjbar",
-    writerImageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
+    writerImageUrl: linke,
     date: "Yesterday",
     content:
     """You may know Malcolm as one of the initiators of the auditory toolbox,
@@ -68,10 +69,10 @@ views: '584',),
     views: '874',),
   BlogModel(
     id: "3",
-    imageUrl: "https://www.starkeypro.com/-/media/Project/Starkey/StarkeyMaster/large-cards/genesis-waterproof/ric-rt-acoustic-ports.jpg?h=1470&iar=0&w=1700&hash=46C572F540E6E719A9ABB3BE031126A0",
-    title: "Participation",
+    imageUrl: linke,
+    title: "e is an Adjun more than 30 years.",
     writer: "Amir",
-    writerImageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
+    writerImageUrl: linke,
     date: "Yesterday",
     content:
     """You may know Malcolm as one of the initiators of the auditory toolbox,
@@ -83,10 +84,10 @@ views: '584',),
     views: '800',),
   BlogModel(
     id: "4",
-    imageUrl: "https://i.ytimg.com/vi/KGO2tAqdcpQ/sddefault.jpg?v=649bdd65",
-    title: "Participation",
+    imageUrl: linke,
+    title: "e is an Adjunct P Seminar for more than 30 years.",
     writer: "Azadeh Ranjbar",
-    writerImageUrl: "https://hearingtherapy.co.uk/wp-content/uploads/2021/09/starkey-hearing-aids.jpg",
+    writerImageUrl: linke,
     date: "Yesterday",
     content:
     """You may know Malcolm as one of the initiators of the auditory toolbox,
@@ -98,10 +99,10 @@ views: '584',),
     views: '124',),
   BlogModel(
     id: "5",
-    imageUrl: "https://hearingreview.com/wp-content/uploads/2017/08/iQ-Product-Family-1200x900.png",
-    title: "Participation",
+    imageUrl: linke,
+    title: "Participation e is than 30 years.",
     writer: "Ranjbar",
-    writerImageUrl: "https://hearingreview.com/wp-content/uploads/2017/08/iQ-Product-Family-1200x900.png",
+    writerImageUrl: linke,
     date: "Yesterday",
     content:
     """You may know Malcolm as one of the initiators of the auditory toolbox,
@@ -114,4 +115,21 @@ views: '584',),
 
 
 
+];
+
+List<podcastModel> podcastList = [
+  podcastModel(
+      imageUrl:linke,
+      title: "Podcast 1"),
+  podcastModel(
+      imageUrl:linke ,
+      title: "podcast 2"),
+  
+  podcastModel(
+    imageUrl: linke,
+    title: "podcast 3"
+  ),
+  
+  podcastModel(imageUrl: linke,
+      title: "podcast 4"),
 ];

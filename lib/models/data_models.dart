@@ -27,3 +27,11 @@ class BlogModel{
   });
 
 }
+
+
+class podcastModel{
+  String? imageUrl;
+  String? title;
+
+  podcastModel({ String? imageUrl, String? title});
+}
