@@ -46,9 +46,9 @@ class RegisterPageFirst extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ///************ Image for welcome message *********************************************
-              SizedBox(height: size.height*0.1 ),
+              SizedBox(height: size.height * 0.1),
               Image.asset(Assets.icons.welcome.path, height: size.height * 0.2),
-              SizedBox(height: size.height*0.05),
+              SizedBox(height: size.height * 0.05),
 
               ///************* Add  Smooth Page Indicator   ******************************************
               SizedBox(
@@ -85,28 +85,32 @@ class RegisterPageFirst extends StatelessWidget {
                   activeDotColor: Colors.blueAccent,
                 ),
               ),
-              SizedBox(
-                  height: size.height*0.1
-              ),
+              SizedBox(height: size.height * 0.1),
 
               ///************* Lets Go Button *********************************************************
               ElevatedButton(
                 onPressed: () {
-                  showModalBottomSheet(context: context, builder: (context) {
-
-                    return Container(
-                      decoration: BoxDecoration(color: Colors.blueGrey,borderRadius: BorderRadius.circular(10)),
-                    ) ;
-
-                  },);
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        height: size.height * 0.4,
+                        decoration: BoxDecoration(
+                            color: Colors.blueGrey,
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.white38,width: 3)),
+                      );
+                    },
+                  );
                 },
-                style: ButtonStyle(textStyle: MaterialStateProperty.resolveWith((states){
-                  if(states.contains(MaterialState.pressed)){
+                style: ButtonStyle(
+                    textStyle: MaterialStateProperty.resolveWith((states) {
+                  if (states.contains(MaterialState.pressed)) {
                     return MyTextStyles.large_4;
                   }
                   return MyTextStyles.medium_1;
                 })),
-                child:  const Text(
+                child: const Text(
                   "Lets Go",
                 ),
               )
