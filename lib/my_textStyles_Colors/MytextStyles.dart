@@ -74,4 +74,23 @@ class MyTextStyles {
       color: Color.fromARGB(255, 134, 154, 135),
       fontWeight: FontWeight.w600,
       fontSize: 23);
+
+  ///*********** Dark ******************************************************///
+  static TextStyle smallDark_4 = const TextStyle(
+      fontFamily: "Dubai",
+      color: Color.fromARGB(255, 23, 51, 68),
+      fontWeight: FontWeight.w100,
+      fontSize: 16);
+
+  static TextStyle mediumDark_4 = const TextStyle(
+      fontFamily: "Dubai",
+      color: Color.fromARGB(255, 23, 51, 68),
+      fontWeight: FontWeight.w400,
+      fontSize: 20);
+
+  static TextStyle largeDark_4 = const TextStyle(
+      fontFamily: "Dubai",
+      color: Color.fromARGB(255, 23, 51, 68),
+      fontWeight: FontWeight.w600,
+      fontSize: 23);
 }

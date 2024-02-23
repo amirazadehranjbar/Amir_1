@@ -22,13 +22,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
-                  side: MaterialStateProperty.all(BorderSide(
-                    width: 3,
-                    color: Colors.white38,
-                  )),
-                  shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))),elevation: MaterialStatePropertyAll(20),
-              backgroundColor: MaterialStatePropertyAll(Colors.black45),)),
+            side: MaterialStateProperty.all(BorderSide(
+              width: 3,
+              color: Colors.white38,
+            )),
+            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10))),
+            elevation: MaterialStatePropertyAll(20),
+            backgroundColor: MaterialStatePropertyAll(Colors.black45),
+          )),
+          inputDecorationTheme: InputDecorationTheme(
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white70, width: 8),
+                  borderRadius: BorderRadius.circular(10)),filled: true,hoverColor: Colors.teal),
           brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),

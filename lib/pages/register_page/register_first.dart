@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:git_project/gen/assets.gen.dart';
 import 'package:git_project/my_textStyles_Colors/MytextStyles.dart';
-import 'package:git_project/pages/register_page_controller.dart';
+import 'package:git_project/pages/register_page/register_page_controller.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:validators/validators.dart';
 
 class RegisterPageFirst extends StatelessWidget {
   RegisterPageFirst({super.key});
@@ -56,7 +57,7 @@ class RegisterPageFirst extends StatelessWidget {
                 child: PageView.builder(
                   controller: pagecontroller,
                   onPageChanged: (value) {
-                    registercontroller.PageIndex.value = value;
+                    registercontroller.pageIndex.value = value;
                   },
                   itemCount: pages.length,
                   physics: BouncingScrollPhysics(),
@@ -69,7 +70,7 @@ class RegisterPageFirst extends StatelessWidget {
                 padding: EdgeInsets.only(top: 24, bottom: 12),
                 child: Obx(() {
                   return Text(
-                    registercontroller.PageIndex.value.toString(),
+                    registercontroller.pageIndex.value.toString(),
                     style: TextStyle(color: Colors.black54),
                   );
                 }),
@@ -90,18 +91,7 @@ class RegisterPageFirst extends StatelessWidget {
               ///************* Lets Go Button *********************************************************
               ElevatedButton(
                 onPressed: () {
-                  showModalBottomSheet(
-                    context: context,
-                    builder: (context) {
-                      return Container(
-                        height: size.height * 0.4,
-                        decoration: BoxDecoration(
-                            color: Colors.blueGrey,
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.white38,width: 3)),
-                      );
-                    },
-                  );
+                  buildShowModalBottomSheetEmail(context, size);
                 },
                 style: ButtonStyle(
                     textStyle: MaterialStateProperty.resolveWith((states) {
@@ -118,6 +108,111 @@ class RegisterPageFirst extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  ///****************** Email Bottom Sheet ************************************************
+  Future<dynamic> buildShowModalBottomSheetEmail(
+      BuildContext context, Size size) {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (context) {
+        return Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: Container(
+            height: size.height * 0.4,
+            decoration: BoxDecoration(
+                color: Colors.blueGrey.shade400,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.white38, width: 3)),
+            child: Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                //*** Email Text ******
+                Text(
+                  "Please Enter Your Email Address",
+                  style: MyTextStyles.mediumDark_4,
+                ),
+                //*** Text Field Input Email ****
+                Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: TextField(
+                    controller: registercontroller.emailController,
+                    onChanged: (value) {
+                      print(
+                          "************************************** ${isEmail(value)}");
+                    },
+                    textAlign: TextAlign.center,
+                    decoration: const InputDecoration(
+                        labelText: "Email Address",
+                        hintText: "youremail@gmail.com"),
+                  ),
+                ),
+                //*** Button for Next *********
+                ElevatedButton(
+                    onPressed: () {
+                      registercontroller.email.value =
+                          registercontroller.emailController.text;
+                      Get.back();
+                      buildShowModalBottomSheetActivateCode(context, size);
+                    },
+                    child: Text("Next", style: MyTextStyles.medium_1))
+              ],
+            )),
+          ),
+        );
+      },
+    );
+  }
+
+  ///****************** Activate Code Bottom Sheet ************************************************
+  Future<dynamic> buildShowModalBottomSheetActivateCode(
+      BuildContext context, Size size) {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (context) {
+        return Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: Container(
+            height: size.height * 0.4,
+            decoration: BoxDecoration(
+                color: Colors.teal.shade400,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.orangeAccent, width: 3)),
+            child: Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                //*** Email Text ******
+                Text(
+                  "${registercontroller.email.value}  Your Activate Code",
+                  style: MyTextStyles.mediumDark_4,
+                ),
+                //*** Text Field Input Email ****
+                const Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: TextField(
+                    textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                        labelText: "Activate Code", hintText: "********"),
+                  ),
+                ),
+                //*** Button for Next *********
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text("Active", style: MyTextStyles.medium_1))
+              ],
+            )),
+          ),
+        );
+      },
     );
   }
 }
