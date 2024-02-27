@@ -48,8 +48,11 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.jpg
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.jpg');
 
+  /// File path: assets/images/youtube.png
+  AssetGenImage get youtube => const AssetGenImage('assets/images/youtube.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [conf, hashtag, logo];
+  List<AssetGenImage> get values => [conf, hashtag, logo, youtube];
 }
 
 class Assets {

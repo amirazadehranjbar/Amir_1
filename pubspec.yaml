@@ -9,6 +9,7 @@ environment:
   sdk: '>=3.2.5 <4.0.0'
 
 dependencies:
+  flutter_sizer: ^1.0.4
   validators: ^3.0.0
   smooth_page_indicator: ^1.1.0
   expandable_text: 2.3.0
@@ -40,6 +41,7 @@ flutter:
     - assets/icons/profile.png
     - assets/icons/edite_profile.png
     - assets/icons/welcome.png
+    - assets/images/youtube.png
 
   fonts:
     - family: Dubia

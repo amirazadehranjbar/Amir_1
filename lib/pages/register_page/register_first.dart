@@ -6,6 +6,8 @@ import 'package:git_project/pages/register_page/register_page_controller.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:validators/validators.dart';
 
+import '../my_categories_page/my_categories_page.dart';
+
 class RegisterPageFirst extends StatelessWidget {
   RegisterPageFirst({super.key});
 
@@ -206,7 +208,9 @@ class RegisterPageFirst extends StatelessWidget {
                 ),
                 //*** Button for Next *********
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(()=>MyCategoriesPage(),transition: Transition.fadeIn,duration: const Duration(seconds: 2));
+                    },
                     child: Text("Active", style: MyTextStyles.medium_1))
               ],
             )),
