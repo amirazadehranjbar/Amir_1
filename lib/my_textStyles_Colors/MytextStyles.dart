@@ -1,6 +1,25 @@
 import 'package:flutter/material.dart';
 
 class MyTextStyles {
+  ///*********** 0 ******************************************************///
+  static TextStyle small_0 = const TextStyle(
+      fontFamily: "Dubai",
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+      fontSize: 10);
+
+  static TextStyle medium_0 = const TextStyle(
+      fontFamily: "Dubai",
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+      fontSize: 14);
+
+  static TextStyle large_0 = const TextStyle(
+      fontFamily: "Dubai",
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+      fontSize: 16);
+
   ///*********** 1 ******************************************************///
   static TextStyle small_1 = const TextStyle(
       fontFamily: "Dubai",

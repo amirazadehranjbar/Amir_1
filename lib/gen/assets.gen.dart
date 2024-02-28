@@ -39,6 +39,8 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  $AssetsImagesCategoryGen get category => const $AssetsImagesCategoryGen();
+
   /// File path: assets/images/conf.jpg
   AssetGenImage get conf => const AssetGenImage('assets/images/conf.jpg');
 
@@ -53,6 +55,44 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [conf, hashtag, logo, youtube];
+}
+
+class $AssetsImagesCategoryGen {
+  const $AssetsImagesCategoryGen();
+
+  /// File path: assets/images/category/hearingLoss_1.png
+  AssetGenImage get hearingLoss1 =>
+      const AssetGenImage('assets/images/category/hearingLoss_1.png');
+
+  /// File path: assets/images/category/hearingLoss_2.png
+  AssetGenImage get hearingLoss2 =>
+      const AssetGenImage('assets/images/category/hearingLoss_2.png');
+
+  /// File path: assets/images/category/hearingLoss_3.png
+  AssetGenImage get hearingLoss3 =>
+      const AssetGenImage('assets/images/category/hearingLoss_3.png');
+
+  /// File path: assets/images/category/hearingLoss_4.png
+  AssetGenImage get hearingLoss4 =>
+      const AssetGenImage('assets/images/category/hearingLoss_4.png');
+
+  /// File path: assets/images/category/hearingLoss_5.png
+  AssetGenImage get hearingLoss5 =>
+      const AssetGenImage('assets/images/category/hearingLoss_5.png');
+
+  /// File path: assets/images/category/hearingLoss_6.png
+  AssetGenImage get hearingLoss6 =>
+      const AssetGenImage('assets/images/category/hearingLoss_6.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        hearingLoss1,
+        hearingLoss2,
+        hearingLoss3,
+        hearingLoss4,
+        hearingLoss5,
+        hearingLoss6
+      ];
 }
 
 class Assets {

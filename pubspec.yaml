@@ -42,6 +42,12 @@ flutter:
     - assets/icons/edite_profile.png
     - assets/icons/welcome.png
     - assets/images/youtube.png
+    - assets/images/category/hearingLoss_1.png
+    - assets/images/category/hearingLoss_2.png
+    - assets/images/category/hearingLoss_3.png
+    - assets/images/category/hearingLoss_4.png
+    - assets/images/category/hearingLoss_5.png
+    - assets/images/category/hearingLoss_6.png
 
   fonts:
     - family: Dubia

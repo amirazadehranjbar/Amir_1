@@ -29,13 +29,13 @@ class RegisterPageFirst extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 color: Colors.teal.shade600,
               ),
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              child: SizedBox(
                 height: 280,
                 child: Center(
                     child: Text(
                   "Page $index",
-                  style: TextStyle(color: Colors.indigo),
+                  style: const TextStyle(color: Colors.indigo),
                 )),
               ),
             ));
@@ -44,7 +44,7 @@ class RegisterPageFirst extends StatelessWidget {
       child: Scaffold(
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -62,18 +62,18 @@ class RegisterPageFirst extends StatelessWidget {
                     registercontroller.pageIndex.value = value;
                   },
                   itemCount: pages.length,
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   itemBuilder: (_, index) {
                     return pages[index % pages.length];
                   },
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 24, bottom: 12),
+                padding: const EdgeInsets.only(top: 24, bottom: 12),
                 child: Obx(() {
                   return Text(
                     registercontroller.pageIndex.value.toString(),
-                    style: TextStyle(color: Colors.black54),
+                    style: const TextStyle(color: Colors.black54),
                   );
                 }),
               ),
@@ -141,7 +141,7 @@ class RegisterPageFirst extends StatelessWidget {
                 ),
                 //*** Text Field Input Email ****
                 Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: TextField(
                     controller: registercontroller.emailController,
                     onChanged: (value) {

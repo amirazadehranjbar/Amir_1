@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:git_project/gen/assets.gen.dart';
 import 'package:git_project/my_textStyles_Colors/MytextStyles.dart';
+import 'package:git_project/pages/my_categories_page/categories_list.dart';
 
 ///*******************************************************
 
@@ -53,21 +54,70 @@ class MyCategoriesPage extends StatelessWidget {
                 ),
                 SizedBox(height: Adaptive.h(2)),
                 //*********** Favorites Categories Grid View Builder ***********
-                GridView.builder(
-                  physics: ClampingScrollPhysics(),
-                  itemCount: 15,
-                  shrinkWrap: true,
-                  gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing:Adaptive.w(2) ,
-                      mainAxisSpacing: Adaptive.h(2),
-                      crossAxisCount: 3),
-                  itemBuilder: (context, index) {
-                    return Container(
-                        width: Adaptive.w(10),
-                        height: Adaptive.h(10),
-                        color: Colors.white12,
-                        child: Text("Grid View", style: MyTextStyles.medium_1));
-                  },
+                SizedBox(
+                  height: Adaptive.h(30),
+                  width: Adaptive.w(90),
+                  child: GridView.builder(
+                    physics: const ClampingScrollPhysics(),
+                    itemCount: 6,
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisSpacing: Adaptive.w(2),
+                        mainAxisSpacing: Adaptive.h(2),
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.9),
+                    itemBuilder: (context, index) {
+                      return Container(
+                          width: Adaptive.w(0.2),
+                          height: Adaptive.h(0.2),
+                          //******* Image for Category *******
+                          decoration: BoxDecoration(
+                              color: Colors.black54,
+                              borderRadius: BorderRadius.circular(10),
+                              border:
+                                  Border.all(color: Colors.white38, width: 3),
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage(categoryList[index].catImage),
+                                  fit: BoxFit.cover)),
+                          child: Stack(
+                            children: [
+                              //*** See More Button ***
+                              Positioned(
+                                  bottom: 5,
+                                  left: 5,
+                                  right: 5,
+                                  height: 30,
+                                  child: ElevatedButton(
+                                    onPressed: () {print(categoryList[index].catId);},
+                                    child: const Text(
+                                      "See More",
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                  )),
+                              //*** Category Name ***
+                              Positioned(
+                                top: 5,
+                                right: 5,
+                                left: 5,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.black54,
+                                      border: Border.all(
+                                          color: Colors.blue, width: 2),
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: Text(
+                                    categoryList[index].catName,
+                                    style: MyTextStyles.small_0,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ));
+                    },
+                  ),
                 )
               ],
             ),
