@@ -1,6 +1,4 @@
-
 import 'package:git_project/gen/assets.gen.dart';
-
 import 'categories_model.dart';
 
 List<CategoryModel> categoryList = [
@@ -11,6 +9,7 @@ List<CategoryModel> categoryList = [
   CategoryModel(catId: 3, catName: "Category 4", catImage: Assets.images.category.hearingLoss4.path),
   CategoryModel(catId: 4, catName: "Category 5", catImage: Assets.images.category.hearingLoss5.path),
   CategoryModel(catId: 5, catName: "Category 6", catImage: Assets.images.category.hearingLoss6.path),
+  CategoryModel(catId: 6, catName: "Category 7", catImage: Assets.images.category.hearingLoss6.path),
 
 
 
