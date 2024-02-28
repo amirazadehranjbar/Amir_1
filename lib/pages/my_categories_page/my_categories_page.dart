@@ -1,13 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:get/get.dart';
 import 'package:git_project/gen/assets.gen.dart';
 import 'package:git_project/my_textStyles_Colors/MytextStyles.dart';
 import 'package:git_project/pages/my_categories_page/categories_list.dart';
+import 'package:git_project/pages/my_categories_page/category_controller.dart';
 
 ///*******************************************************
 
 class MyCategoriesPage extends StatelessWidget {
-  const MyCategoriesPage({super.key});
+  MyCategoriesPage({super.key});
+
+  final controller = Get.put(CategoryController());
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +24,13 @@ class MyCategoriesPage extends StatelessWidget {
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           physics: const BouncingScrollPhysics(),
-          child: Center(
+          child: Obx(() {
+            return Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
                 ///************* Logo Image ************************************
                 SizedBox(height: Adaptive.h(2)),
                 Image.asset(
@@ -54,9 +61,11 @@ class MyCategoriesPage extends StatelessWidget {
                 ),
                 SizedBox(height: Adaptive.h(2)),
                 //*********** Favorites Categories Grid View Builder ***********
-                SizedBox(
-                  height: Adaptive.h(30),
+                AnimatedContainer(
+                  duration: const Duration(seconds: 1),
+                  height: Adaptive.h(35),
                   width: Adaptive.w(90),
+                  transform: Matrix4.rotationZ(controller.zRotation.value),
                   child: GridView.builder(
                     physics: const ClampingScrollPhysics(),
                     itemCount: 6,
@@ -70,17 +79,18 @@ class MyCategoriesPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Container(
                           width: Adaptive.w(0.2),
-                          height: Adaptive.h(0.2),
+                          height: Adaptive.h(0.3),
                           //******* Image for Category *******
                           decoration: BoxDecoration(
                               color: Colors.black54,
                               borderRadius: BorderRadius.circular(10),
                               border:
-                                  Border.all(color: Colors.white38, width: 3),
+                              Border.all(color: Colors.white38, width: 3),
                               image: DecorationImage(
                                   image:
-                                      AssetImage(categoryList[index].catImage),
+                                  AssetImage(categoryList[index].catImage),
                                   fit: BoxFit.cover)),
+                          padding: const EdgeInsets.all(5),
                           child: Stack(
                             children: [
                               //*** See More Button ***
@@ -90,7 +100,15 @@ class MyCategoriesPage extends StatelessWidget {
                                   right: 5,
                                   height: 30,
                                   child: ElevatedButton(
-                                    onPressed: () {print(categoryList[index].catId);},
+                                    onPressed: () {
+                                      controller.zRotation.update((val) {
+                                        if(val==0){
+                                          controller.zRotation.value=0.5;
+                                        }else if(val==0.5){
+                                          controller.zRotation.value=0;
+                                        }
+                                      });
+                                    },
                                     child: const Text(
                                       "See More",
                                       style: TextStyle(color: Colors.black),
@@ -121,7 +139,8 @@ class MyCategoriesPage extends StatelessWidget {
                 )
               ],
             ),
-          ),
+            );
+          }),
         ),
       ),
     );
