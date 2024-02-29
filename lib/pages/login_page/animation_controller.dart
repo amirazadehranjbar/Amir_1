@@ -1,18 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:get/get_rx/get_rx.dart';
 
-class LogInController extends GetxController{
-  //******** Log In Button Function **********************************************
-  TextEditingController userNameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
-  var userName = "".obs;
-  var userPassword = "".obs;
-  void logInFunction() {
-
-  }
-
+class MyAnimationController extends GetxController{
 
 
 
