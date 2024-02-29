@@ -62,7 +62,7 @@ class LogInPage extends StatelessWidget {
                                       myDataBaseController:
                                           myDataBaseController,
                                     myCallback: () {
-                                      myDataBaseController.addNewUser(context);
+                                      myDataBaseController.addNewUser();
                                     },);
                                 },
                               );

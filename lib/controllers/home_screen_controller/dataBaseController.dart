@@ -30,9 +30,9 @@ class DataBaseController extends GetxController {
           colorText: const Color.fromARGB(157, 43, 180, 130));
       print("Data Base Is Empty ------>${dataBaseHive.values}");
     } else {
-      for (int i = 0; i < dataBaseHive.length; i++) {
-        print(dataBaseHive.getAt(i));
-      }
+      // for (int i = 0; i < dataBaseHive.length; i++) {
+      //   print(dataBaseHive.getAt(i));
+      // }
       print("Data Base Not Empty ------>${dataBaseHive.get("UserDataBox")}");
     }
   }
@@ -43,29 +43,51 @@ class DataBaseController extends GetxController {
     print(dataBaseHive.get("UserDataBox"));
   }
 
-  //*** Recode User Data ********
-  void saveDataToDataBase() {
-    dataBaseHive.put("UserDataBox", dataList);
-    print("From Detect The Change ------> ${dataBaseHive.get("UserDataBox")}");
-  }
 
   //********* Function For Add New Task ********************************
-  void addNewUser(BuildContext context) {
+  void addNewUser() {
     // Use the newTaskTextEditingController to get the values
-    var newTask = {
-      "userName": newUserNameTextEditingController.text,
-      "usrEmail": newUserEmailTextEditingController.text,
-      "password": newUserPasswordTextEditingController.text,
-    };
+    var newUserName = newUserNameTextEditingController.text;
+    var newUserEmail = newUserEmailTextEditingController.text;
 
-    // Add the new task to dataList
-    dataList.add(newTask);
-    print(dataList);
+    // Retrieve the existing data from the database and cast it to the correct type
+    List<Map<String, dynamic>> existingData =
+        (dataBaseHive.get("UserDataBox") as List<dynamic>?)
+            ?.map((item) => Map<String, dynamic>.from(item))
+            ?.toList() ?? [];
 
-    // Save the updated dataList to the database
-    saveDataToDataBase();
+    // Check if user with the same userName or newUserEmail already exists
+    bool userExists = existingData.any((user) =>
+    user['userName'] == newUserName || user['usrEmail'] == newUserEmail);
 
-    // Optionally, you can clear the text field
-    newUserNameTextEditingController.clear();
+    if (userExists) {
+      // Display a message or take any appropriate action
+      Get.snackbar("User Already Exists", "Please choose a different username or email");
+    } else {
+      // Add the new user to the existing data
+      var newUser = {
+        "userName": newUserName,
+        "usrEmail": newUserEmail,
+        "password": newUserPasswordTextEditingController.text,
+      };
+
+      existingData.add(newUser);
+
+      // Update the dataList with the modified data
+      dataList.assignAll(existingData);
+      dataList.refresh();
+
+      // Save the updated dataList to the database
+      dataBaseHive.put("UserDataBox", existingData);
+      print(dataBaseHive.get("UserDataBox"));
+
+      // Optionally, you can clear the text field
+      newUserNameTextEditingController.clear();
+      newUserPasswordTextEditingController.clear();
+      newUserEmailTextEditingController.clear();
+    }
   }
+
+
+
 }
