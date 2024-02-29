@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:get/get.dart';
-import 'package:git_project/gen/assets.gen.dart';
-import 'package:git_project/pages/splash_page/splash_screen.dart';
-import 'my_textStyles_Colors/MytextStyles.dart';
+import 'package:git_project/pages/login_page/login_page.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+
+Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await Hive.initFlutter();
+  var box = await Hive.openBox("UserDataBox");
   runApp(const MyApp());
   FlutterNativeSplash.remove();
 }
@@ -33,15 +35,15 @@ class MyApp extends StatelessWidget {
                   elevation: MaterialStatePropertyAll(20),
                   backgroundColor: MaterialStatePropertyAll(Colors.black45),
                 )),
-            inputDecorationTheme: InputDecorationTheme(
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white70, width: 8),
-                    borderRadius: BorderRadius.circular(10)),
-                filled: true,
-                hoverColor: Colors.teal),
+            // inputDecorationTheme: InputDecorationTheme(
+            //     border: OutlineInputBorder(
+            //         borderSide: BorderSide(color: Colors.white70, width: 8),
+            //         borderRadius: BorderRadius.circular(10)),
+            //     filled: true,
+            //     hoverColor: Colors.teal),
             brightness: Brightness.dark),
         debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
+        home: LogInPage(),
       );
     },);
   }
